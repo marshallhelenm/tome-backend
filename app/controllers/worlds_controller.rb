@@ -1,6 +1,8 @@
 class WorldsController < ApplicationController
     def getworlds
-        worlds = World.all
+        @user = params['user']['user']
+        all_worlds = World.all
+        worlds = all_worlds.filter{ |world| world['user_id'] == @user['id'] }
         render :json => worlds
     end
 
