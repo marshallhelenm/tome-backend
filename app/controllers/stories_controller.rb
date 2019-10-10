@@ -1,5 +1,4 @@
 class StoriesController < ApplicationController
-    before_action :authorized
     
     def index
         stories = Story.all

@@ -1,5 +1,4 @@
 class CharactersController < ApplicationController
-    before_action :authorized
     
     def index
         chracters = Character.all

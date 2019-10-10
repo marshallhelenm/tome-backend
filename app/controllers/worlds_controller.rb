@@ -1,7 +1,15 @@
 class WorldsController < ApplicationController
-    before_action :authorized
-    def index
+    def getworlds
         worlds = World.all
         render :json => worlds
     end
+
+    def show
+        byebug
+    end
+
+    def create
+        byebug
+    end
 end
+ 
