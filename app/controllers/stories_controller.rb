@@ -1,9 +1,13 @@
 class StoriesController < ApplicationController
     
     def getstories
-        @user = params['user']['user']
-        all_stories = Story.all
-        stories = all_stories.filter{ |story| story['user_id'] == @user['id'] }
-        render :json => stories
+        user = User.find(params['user']['user']['id'])
+        render :json => user.stories
     end
+
+    def getworldstories
+        world = World.find(params['world']['id'])
+        render :json => world.stories
+    end
+
 end
