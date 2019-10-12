@@ -1,5 +1,14 @@
 class LocationsController < ApplicationController
     
-    def index
+    def getlocations
+        byebug
+        locations = Location.all
+        render :json => locations
+    end
+
+    def getstorylocations
+        # byebug
+        locations = Location.all
+        render :json => locations
     end
 end
