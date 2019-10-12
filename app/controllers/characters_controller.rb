@@ -7,10 +7,17 @@ class CharactersController < ApplicationController
     end
 
     def getstorycharacters
-        byebug
-        story = Story.find(params['story']['id'])
-        characters = story_chars(story)
-        render :json => characters
+        # byebug
+        if params['story']
+            story = Story.find(params['story']['id']) 
+        end
+
+        if story
+            characters = story_chars(story)
+            render :json => characters
+        else 
+            render :json => nil
+        end
     end
 
 
@@ -18,7 +25,6 @@ class CharactersController < ApplicationController
 
     def story_chars(story)
         StoryCharacter.all.filter{ |sc|
-            byebug
             sc.story_id === story.id
         }
     end
