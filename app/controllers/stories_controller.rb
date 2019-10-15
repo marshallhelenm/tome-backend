@@ -20,8 +20,21 @@ class StoriesController < ApplicationController
     end
 
     def update
+        story = Story.find(params['currentStory']['id'])
+        title = params['title']
+        description = params['description']
+        story.update(title: title, description: description)
+        story.save
+        render :json => story
+    end
+
+    def destroy
         byebug
-        # story = Story.find
+        story = Story.find(params['story']['id'])
+        story.destroy
+        render :json => {
+            message: 'Story Deleted'
+        }        
     end
 
 end
