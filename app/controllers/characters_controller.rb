@@ -1,8 +1,9 @@
 class CharactersController < ApplicationController
     
     def getcharacters
-        user = User.find(params['user']['user']['id'])
-        characters = user.characters
+        # byebug
+        world = World.find(params['world']['id'])
+        characters = world.characters
         render :json => characters
     end
 
@@ -30,7 +31,7 @@ class CharactersController < ApplicationController
     end
 
     def update
-        byebug
+        # byebug
         character = Character.find(params['character']['id'])
         name = params['name']
         description = params['description']
@@ -40,8 +41,8 @@ class CharactersController < ApplicationController
     end
 
     def destroy
-        byebug
-        character = Story.find(params['character']['id'])
+        # byebug
+        character = Character.find(params['character']['id'])
         character.destroy
         render :json => {
             message: 'Character Deleted'
