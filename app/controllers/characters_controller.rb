@@ -29,6 +29,25 @@ class CharactersController < ApplicationController
         render :json => newChar
     end
 
+    def update
+        byebug
+        character = Character.find(params['character']['id'])
+        name = params['name']
+        description = params['description']
+        character.update(name: name, description: description)
+        character.save
+        render :json => character
+    end
+
+    def destroy
+        byebug
+        character = Story.find(params['character']['id'])
+        character.destroy
+        render :json => {
+            message: 'Character Deleted'
+        }        
+    end
+
 
     private
 
