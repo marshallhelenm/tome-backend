@@ -20,6 +20,15 @@ class CharactersController < ApplicationController
         end
     end
 
+    def create
+        user = User.find(params['character']['user']['user']['id'])
+        name = params['character']['name']
+        description = params['character']['description']
+        world = World.find(params['character']['world']['id'])
+        newChar = Character.create(name: name, description: description, world_id: world.id)
+        render :json => newChar
+    end
+
 
     private
 

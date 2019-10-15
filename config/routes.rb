@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   post '/login', to: 'auth#login'
   post '/signup', to: 'users#create'
+
   post '/getworlds', to: 'worlds#getworlds'
   post '/getstories', to: 'stories#getstories'
   post '/getworldstories', to: 'stories#getworldstories'
@@ -20,9 +21,10 @@ Rails.application.routes.draw do
   post '/getlocations', to: 'locations#getlocations'
   post '/getstorylocations', to: 'locations#getstorylocations'
 
-    # get '/profile', to: 'user#profile'
-
-
+  post '/worlds/new', to: 'worlds#create'
+  post '/stories/new', to: 'stories#create'
+  post '/characters/new', to: 'characters#create'
+  post '/locations/new', to: 'locations#create'
 
 
 
