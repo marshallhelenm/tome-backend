@@ -13,15 +13,21 @@ class CharactersController < ApplicationController
             characters = story.characters
             render :json => characters
         else 
-            render :json => nil
+            render :json => []
         end
     end
 
     def create
-        name = params['character']['name']
-        description = params['character']['description']
-        world = World.find(params['character']['world']['id'])
+        name = params['name']
+        description = params['description']
+        world = World.find(params['world']['id'])
         newChar = Character.create(name: name, description: description, world_id: world.id)
+
+        if params['story_id'] != ''
+            story = Story.find(params['story_id'].to_i)
+            story.characters << newChar
+        end
+
         render :json => newChar
     end
 

@@ -18,13 +18,18 @@ class LocationsController < ApplicationController
     end
 
     def create
-        # byebug
-        user = User.find(params['location']['user']['user']['id'])
+        byebug
         name = params['location']['name']
         description = params['location']['description']
         world = World.find(params['location']['world']['id'])
-        newChar = Location.create(name: name, description: description, world_id: world.id)
-        render :json => newChar
+        newLoc = Location.create(name: name, description: description, world_id: world.id)
+
+        if params['story_id'] != ''
+            story = Story.find(params['location']['story_id'].to_i)
+            story.locations << newLoc
+        end
+
+        render :json => newLoc
     end
 
     def update
@@ -38,7 +43,7 @@ class LocationsController < ApplicationController
     end
 
     def destroy
-        byebug
+        # byebug
         location = Location.find(params['location']['id'])
         location.destroy
         render :json => {
