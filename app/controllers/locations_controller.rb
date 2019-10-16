@@ -1,20 +1,16 @@
 class LocationsController < ApplicationController
     
     def getlocations
-        byebug
+        # byebug
         world = World.find(params['world']['id'])
         locations = world.locations
         render :json => locations
     end
 
     def getstorylocations
-        byebug
         if params['story']
             story = Story.find(params['story']['id']) 
-        end
-
-        if story
-            locations = story_locs(story)
+            locations = story.locations
             render :json => locations
         else 
             render :json => nil
@@ -22,7 +18,7 @@ class LocationsController < ApplicationController
     end
 
     def create
-        byebug
+        # byebug
         user = User.find(params['location']['user']['user']['id'])
         name = params['location']['name']
         description = params['location']['description']
@@ -32,7 +28,7 @@ class LocationsController < ApplicationController
     end
 
     def update
-        byebug
+        # byebug
         location = Location.find(params['location']['id'])
         name = params['name']
         description = params['description']
@@ -48,14 +44,5 @@ class LocationsController < ApplicationController
         render :json => {
             message: 'Location Deleted'
         }        
-    end
-
-
-    private
-
-    def story_locs(story)
-        StoryLocation.all.filter{ |sc|
-            sc.story_id === story.id
-        }
     end
 end

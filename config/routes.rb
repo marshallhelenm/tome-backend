@@ -20,11 +20,13 @@ Rails.application.routes.draw do
   post '/getstorycharacters', to: 'characters#getstorycharacters'
   post '/getlocations', to: 'locations#getlocations'
   post '/getstorylocations', to: 'locations#getstorylocations'
+  post '/getstory_notes', to: 'story_notes#getstory_notes'
 
   post '/worlds/new', to: 'worlds#create'
   post '/stories/new', to: 'stories#create'
   post '/characters/new', to: 'characters#create'
   post '/locations/new', to: 'locations#create'
+  post '/story_notes/new', to: 'story_notes#create'
 
 
 
