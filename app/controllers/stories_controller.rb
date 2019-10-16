@@ -29,7 +29,6 @@ class StoriesController < ApplicationController
     end
 
     def destroy
-        byebug
         story = Story.find(params['story']['id'])
         story.destroy
         render :json => {
