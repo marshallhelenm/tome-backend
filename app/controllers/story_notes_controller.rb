@@ -6,7 +6,6 @@ class StoryNotesController < ApplicationController
     end
 
     def create
-        byebug
         note = StoryNote.create(title: params['note']['title'], content: params['note']['content'], story_id: params['note']['story']['id'])
         render :json => note
     end
