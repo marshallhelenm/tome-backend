@@ -13,23 +13,22 @@ class LocationsController < ApplicationController
             locations = story.locations
             render :json => locations
         else 
-            render :json => nil
+            render :json => []
         end
     end
 
     def create
-        byebug
-        name = params['location']['name']
-        description = params['location']['description']
-        world = World.find(params['location']['world']['id'])
-        newLoc = Location.create(name: name, description: description, world_id: world.id)
+        name = params['name']
+        description = params['description']
+        world = World.find(params['world']['id'])
+        newChar = Location.create(name: name, description: description, world_id: world.id)
 
         if params['story_id'] != ''
-            story = Story.find(params['location']['story_id'].to_i)
-            story.locations << newLoc
+            story = Story.find(params['story_id'].to_i)
+            story.locations << newChar
         end
 
-        render :json => newLoc
+        render :json => newChar
     end
 
     def update
@@ -50,4 +49,6 @@ class LocationsController < ApplicationController
             message: 'Location Deleted'
         }        
     end
+
+
 end
