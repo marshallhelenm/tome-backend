@@ -4,4 +4,5 @@ class World < ApplicationRecord
   has_many :locations
   has_many :stories
   
+  has_one_attached :photo
 end

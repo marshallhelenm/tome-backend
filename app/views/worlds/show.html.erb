@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @world.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @world.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @world.user_id %>
+</p>
+
+<p>
+  <strong>Default story:</strong>
+  <%= @world.default_story_id %>
+</p>
+
+<%= link_to 'Edit', edit_world_path(@world) %> |
+<%= link_to 'Back', worlds_path %>

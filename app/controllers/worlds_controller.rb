@@ -10,11 +10,13 @@ class WorldsController < ApplicationController
     end
 
     def create
-        user = User.find(params['world']['user']['user']['id'])
+        # byebug
+        user_id = params['world']['user_id']
         name = params['world']['name']
         description = params['world']['description']
-        newWorld = World.create(name: name, description: description)
-        user.worlds << newWorld
+        newWorld = World.create(name: name, description: description, user_id: user_id)
+        # byebug
+        # newWorld.photo.attach(world_params[:photo])
         render :json => newWorld
     end
 
@@ -37,6 +39,10 @@ class WorldsController < ApplicationController
         render :json => {
             message: 'World Deleted'
         }
+    end
+
+    def world_params
+        params.require(:world).permit(:name, :description, :user_id, :photo)
     end
 
 end
