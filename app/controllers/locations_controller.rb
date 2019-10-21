@@ -18,15 +18,14 @@ class LocationsController < ApplicationController
     end
 
     def create
-        name = params['name']
-        description = params['description']
-        world = World.find(params['world']['id'])
-        newChar = Location.create(name: name, description: description, world_id: world.id)
+        name = location_params['name']
+        description = location_params['description']
+        newChar = Location.create(name: name, description: description, world_id: location_params['world_id'])
 
-        if params['story_id'] != ''
-            story = Story.find(params['story_id'].to_i)
-            story.locations << newChar
-        end
+        # if params['story_id'] != ''
+        #     story = Story.find(params['story_id'].to_i)
+        #     story.locations << newChar
+        # end
 
         render :json => newChar
     end
@@ -48,6 +47,12 @@ class LocationsController < ApplicationController
         render :json => {
             message: 'Location Deleted'
         }        
+    end
+
+    private
+
+    def location_params
+        params.require(:location).permit(:name, :description, :world_id)
     end
 
 
