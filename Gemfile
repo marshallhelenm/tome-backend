@@ -10,11 +10,12 @@ gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+# gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+gem "jwt", "~> 2.2"
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -46,8 +47,11 @@ gem 'active_model_serializers', '~> 0.10.0'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "jwt", "~> 2.2"
 
-gem 'aws-sdk'
+# Allowing ENV variables to be accessible
+gem 'dotenv-rails'
 
-gem "paperclip", "~> 5.0.0.beta1"
+# AWS S3 hosting
+gem 'aws-sdk-s3'
+
+gem 'dotenv-rails'

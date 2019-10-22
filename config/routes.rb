@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :images
   resources :worlds
   resources :story_locations
   resources :story_characters

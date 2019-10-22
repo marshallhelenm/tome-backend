@@ -10,13 +10,15 @@ class WorldsController < ApplicationController
     end
 
     def create
-        # byebug
-        user_id = params['world']['user_id']
-        name = params['world']['name']
-        description = params['world']['description']
+        byebug
+        user_id = world_params['user_id']
+        name = world_params['name']
+        description = world_params['description']
         newWorld = World.create(name: name, description: description, user_id: user_id)
-        # byebug
-        # newWorld.photo.attach(world_params[:photo])
+        img_urls = world_params['img_url'].split(', ')
+        img_urls.each do |url|
+            Image.create(url: url, world_id: newWorld.id)
+        end
         render :json => newWorld
     end
 
@@ -42,8 +44,7 @@ class WorldsController < ApplicationController
     end
 
     def world_params
-        params.require(:world).permit(:name, :description, :user_id, :photo)
+        params.require(:world).permit(:name, :description, :user_id, :img_url)
     end
 
 end
- 

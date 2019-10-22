@@ -3,4 +3,5 @@ class StorySerializer < ActiveModel::Serializer
   has_one :story_notes
   has_one :characters
   has_one :locations
+  has_many :images
 end

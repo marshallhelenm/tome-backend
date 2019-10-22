@@ -5,4 +5,5 @@ class Story < ApplicationRecord
   has_many :story_locations
   has_many :characters, through: :story_characters
   has_many :locations, through: :story_locations
+  has_many :images
 end

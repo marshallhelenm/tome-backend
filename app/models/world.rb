@@ -3,6 +3,5 @@ class World < ApplicationRecord
   has_many :characters
   has_many :locations
   has_many :stories
-  
-  has_one_attached :photo
+  has_many :images
 end

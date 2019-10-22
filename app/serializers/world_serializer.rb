@@ -3,5 +3,5 @@ class WorldSerializer < ActiveModel::Serializer
   has_one :stories
   has_one :characters
   has_one :locations
-  has_one :photo
+  has_many :images
 end

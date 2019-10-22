@@ -44,6 +44,17 @@ ActiveRecord::Schema.define(version: 2019_10_18_175020) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "images", force: :cascade do |t|
+    t.string "url"
+    t.integer "world_id"
+    t.integer "story_id"
+    t.integer "character_id"
+    t.integer "location_id"
+    t.integer "note_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "locations", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -95,7 +106,6 @@ ActiveRecord::Schema.define(version: 2019_10_18_175020) do
     t.string "description"
     t.integer "user_id"
     t.integer "default_story_id"
-    t.string "img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
