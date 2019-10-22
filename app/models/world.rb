@@ -4,5 +4,6 @@ class World < ApplicationRecord
   has_many :locations
   has_many :stories
   
-  has_one_attached :photo
+  mount_uploader :image, ImageUploader
+  has_attachments :photos, maximum: 10
 end

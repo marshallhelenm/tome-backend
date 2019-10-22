@@ -1,0 +1,8 @@
+development:
+  cloud_name: 'dwfqeeh5f'
+  api_key: '354767686123338'
+  api_secret: '6S3hZ5Au7GyUa2dHSXLun1XM-e0'
+production:
+  cloud_name: 'dwfqeeh5f'
+  api_key: '354767686123338'
+  api_secret: '6S3hZ5Au7GyUa2dHSXLun1XM-e0'

@@ -50,4 +50,6 @@ gem "jwt", "~> 2.2"
 
 gem 'aws-sdk'
 
-gem "paperclip", "~> 5.0.0.beta1"
+gem 'carrierwave'
+gem 'cloudinary'
+gem 'attachinary'

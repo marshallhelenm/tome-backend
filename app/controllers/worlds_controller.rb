@@ -45,5 +45,16 @@ class WorldsController < ApplicationController
         params.require(:world).permit(:name, :description, :user_id, :photo)
     end
 
+    # def image_upload
+    #     byebug
+    #     Cloudinary::Uploader.upload(params['image'], :folder => 'WorldBuildersTome/')
+    # end
+
+private
+    def user_params
+        params.require('world').permit(:name, :description, :image)
+    end
+
+
 end
  

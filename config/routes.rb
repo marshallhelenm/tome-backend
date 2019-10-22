@@ -28,6 +28,12 @@ Rails.application.routes.draw do
   post '/locations/new', to: 'locations#create'
   post '/story_notes/new', to: 'story_notes#create'
 
+  post '/worlds/image_upload', to: 'worlds#image_upload'
+
+
+
+  mount Attachinary::Engine => "/attachinary"
+
 
 
 
