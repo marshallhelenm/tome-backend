@@ -60,3 +60,8 @@ puts 'created locations and added to worlds'
 
 well1.characters << c2 << c3
 well1.locations << loc2 << loc3
+
+# Image.create(url: 'https://cdn.pixabay.com/photo/2016/03/17/23/00/world-1264062_960_720.jpg', world_id: wellspring.id)
+# Image.create(url: 'https://cdn.pixabay.com/photo/2016/03/17/23/00/world-1264062_960_720.jpg', world_id: crusade.id)
+# Image.create(url: 'https://cdn.pixabay.com/photo/2016/03/17/23/00/world-1264062_960_720.jpg', world_id: vigil.id)
+# Image.create(url: 'https://cdn.pixabay.com/photo/2016/03/17/23/00/world-1264062_960_720.jpg', story_id: vigil.id)
