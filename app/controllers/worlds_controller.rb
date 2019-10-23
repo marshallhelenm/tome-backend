@@ -25,7 +25,7 @@ class WorldsController < ApplicationController
     end
 
     def update
-        byebug
+        # byebug
         world = World.find(world_params['currentWorld'])
         name = world_params['name']
         description = world_params['description']
@@ -40,15 +40,17 @@ class WorldsController < ApplicationController
     end
 
     def destroy
-        world = World.find(params['world']['id'] )
+        world = World.find(world_params['id'] )
         world.destroy
         render :json => {
             message: 'World Deleted'
         }
     end
 
+    private
+
     def world_params
-        params.require(:world).permit(:name, :description, :user_id, :img_url, :currentWorld)
+        params.require(:world).permit(:name, :description, :user_id, :img_url, :currentWorld, :id)
     end
 
 end

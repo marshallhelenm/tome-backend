@@ -1,53 +1,51 @@
 class CharactersController < ApplicationController
     
     def getcharacters
-        # byebug
-        world = World.find(params['world']['id'])
+        world = World.find(char_params['world_id'])
         characters = world.characters
         render :json => characters
     end
 
-    def getstorycharacters
-        if params['story']
-            story = Story.find(params['story']['id']) 
-            characters = story.characters
-            render :json => characters
-        else 
-            render :json => []
-        end
-    end
-
     def create
-        name = params['name']
-        description = params['description']
-        world = World.find(params['world']['id'])
+        name = char_params['name']
+        description = char_params['description']
+        world = World.find(char_params['world_id'])
         newChar = Character.create(name: name, description: description, world_id: world.id)
-
-        if params['story_id'] != ''
-            story = Story.find(params['story_id'].to_i)
-            story.characters << newChar
+        img_urls = char_params['img_url'].split(', ')
+        img_urls.each do |url|
+            Image.create(url: url, character_id: newChar.id)
         end
+
 
         render :json => newChar
     end
 
     def update
-        # byebug
-        character = Character.find(params['character']['id'])
-        name = params['name']
-        description = params['description']
+        character = Character.find(char_params['character_id'])
+        name = char_params['name']
+        description = char_params['description']
         character.update(name: name, description: description)
+        img_urls = char_params['img_url'].split(', ')
+        img_urls.each do |url|
+            Image.create(url: url, character_id: character.id)
+        end
         character.save
         render :json => character
     end
 
     def destroy
-        # byebug
-        character = Character.find(params['character']['id'])
+        byebug
+        character = Character.find(char_params['character_id'])
         character.destroy
         render :json => {
             message: 'Character Deleted'
         }        
+    end
+
+    private
+
+    def char_params
+        params.require(:character).permit(:name, :description, :world_id, :user, :character_id, :img_url, :story)
     end
 
 

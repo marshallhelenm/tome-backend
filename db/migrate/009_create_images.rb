@@ -6,7 +6,7 @@ class CreateImages < ActiveRecord::Migration[5.2]
       t.integer :story_id
       t.integer :character_id
       t.integer :location_id
-      t.integer :note_id
+      t.integer :story_note_id
 
       t.timestamps
     end

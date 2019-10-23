@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2019_10_18_175020) do
     t.integer "story_id"
     t.integer "character_id"
     t.integer "location_id"
-    t.integer "note_id"
+    t.integer "story_note_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
