@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
 
   post '/getworlds', to: 'worlds#getworlds'
+  post '/getworld', to: 'worlds#getworld'
   post '/getstories', to: 'stories#getstories'
   post '/getworldstories', to: 'stories#getworldstories'
   post '/getcharacters', to: 'characters#getcharacters'

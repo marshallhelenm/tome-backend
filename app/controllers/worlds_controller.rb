@@ -5,6 +5,11 @@ class WorldsController < ApplicationController
         render :json => worlds
     end
 
+    def getworld
+        world = World.find(world_params['id'])
+        render :json => world
+    end
+
     def show
         byebug
     end
