@@ -41,7 +41,7 @@ class StoryNotesController < ApplicationController
     private
 
     def note_params
-        params.require(:note).permit(:title, :content, :story_id, :img_url, :note_id, :id)
+        params.require(:note).permit(:title, :content, :story_id, :img_url, :note_id, :id, :note)
     end
 end
 

@@ -17,8 +17,6 @@ class StoriesController < ApplicationController
     end
 
     def create
-        byebug
-        user = User.find(story_params['user'])
         title = story_params['title']
         description = story_params['description']
         world = World.find(story_params['world'])
@@ -54,7 +52,7 @@ class StoriesController < ApplicationController
     private
 
     def story_params
-        params.require(:story).permit(:title, :description, :user_id, :img_url, :world_id, :id)
+        params.require(:story).permit(:title, :description, :user_id, :img_url, :world_id, :id, :world)
     end
 
 end

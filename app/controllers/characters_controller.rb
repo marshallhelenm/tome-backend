@@ -39,7 +39,6 @@ class CharactersController < ApplicationController
     end
 
     def destroy
-        byebug
         character = Character.find(char_params['character_id'])
         character.destroy
         render :json => {

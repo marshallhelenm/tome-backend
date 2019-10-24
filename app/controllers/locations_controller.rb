@@ -40,7 +40,6 @@ class LocationsController < ApplicationController
     end
 
     def destroy
-        byebug
         location = Location.find(loc_params['location_id'])
         location.destroy
         render :json => {
