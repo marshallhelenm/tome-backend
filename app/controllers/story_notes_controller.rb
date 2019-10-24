@@ -31,7 +31,7 @@ class StoryNotesController < ApplicationController
     end
 
     def destroy
-        note = StoryNote.find(note_params['story_id'])
+        note = StoryNote.find(note_params['note_id'])
         note.destroy
         render :json => {
             message: 'Note Deleted'
