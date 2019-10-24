@@ -8,9 +8,9 @@ class UsersController < ApplicationController
 
     def create
         if user_params['password'] == user_params['confirm_password']
-            user = User.create(user_params)
+            user = User.create(username: user_params['username'], password: user_params['password'] )
             if user.valid?
-                render json: {
+                render :json => {
                     user: UserSerializer.new(user)
                 }, status: :created
             else
