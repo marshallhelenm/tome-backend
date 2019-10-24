@@ -16,6 +16,12 @@ Rails.application.routes.draw do
 
   post '/getworlds', to: 'worlds#getworlds'
   post '/getworld', to: 'worlds#getworld'
+  post '/getstory', to: 'stories#getstory'
+  post '/getcharacter', to: 'characters#getcharacter'
+  post '/getlocation', to: 'locations#getlocation'
+  post '/getstory_note', to: 'story_notes#getstory_note'
+
+
   post '/getstories', to: 'stories#getstories'
   post '/getworldstories', to: 'stories#getworldstories'
   post '/getcharacters', to: 'characters#getcharacters'

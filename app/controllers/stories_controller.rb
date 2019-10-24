@@ -11,6 +11,11 @@ class StoriesController < ApplicationController
         render :json => world.stories
     end
 
+    def getstory
+        story = Story.find(story_params['id'])
+        render :json => story
+    end
+
     def create
         byebug
         user = User.find(story_params['user'])
@@ -18,21 +23,27 @@ class StoriesController < ApplicationController
         description = story_params['description']
         world = World.find(story_params['world'])
         newStory = Story.create(title: title, description: description, world_id: world.id)
+        img_urls = story_params['img_url'].split(', ')
+        img_urls.each do |url|
+            Image.create(url: url, story_id: newStory.id)
+        end
         render :json => newStory
     end
 
     def update
-        byebug
-        story = Story.find(story_params['currentStory'])
+        story = Story.find(story_params['id'])
         title = story_params['title']
         description = story_params['description']
         story.update(title: title, description: description)
+        img_urls = story_params['img_url'].split(', ')
+        img_urls.each do |url|
+            Image.create(url: url, story_id: story.id)
+        end
         story.save
         render :json => story
     end
 
     def destroy
-        byebug
         story = Story.find(story_params['id'])
         story.destroy
         render :json => {

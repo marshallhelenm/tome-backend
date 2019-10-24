@@ -6,6 +6,11 @@ class CharactersController < ApplicationController
         render :json => characters
     end
 
+    def getcharacter
+        char = Character.find(char_params['id'])
+        render :json => char
+    end
+
     def create
         name = char_params['name']
         description = char_params['description']
@@ -45,7 +50,7 @@ class CharactersController < ApplicationController
     private
 
     def char_params
-        params.require(:character).permit(:name, :description, :world_id, :user, :character_id, :img_url, :story)
+        params.require(:character).permit(:name, :description, :world_id, :user, :character_id, :img_url, :story, :id)
     end
 
 

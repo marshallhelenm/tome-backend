@@ -6,6 +6,11 @@ class LocationsController < ApplicationController
         render :json => locations
     end
 
+    def getlocation
+        loc = Location.find(loc_params['id'])
+        render :json => loc
+    end
+
 
     def create
         name = loc_params['name']
@@ -46,7 +51,7 @@ class LocationsController < ApplicationController
     private
 
     def loc_params
-        params.require(:location).permit(:name, :description, :world_id, :user, :location_id, :img_url, :story)
+        params.require(:location).permit(:name, :description, :world_id, :user, :location_id, :img_url, :story, :id)
     end
 
 
