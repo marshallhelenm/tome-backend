@@ -50,8 +50,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Allowing ENV variables to be accessible
 gem 'dotenv-rails'
-
-# AWS S3 hosting
-gem 'aws-sdk-s3'
-
-gem 'dotenv-rails'
