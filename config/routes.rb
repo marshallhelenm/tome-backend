@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :world_notes
   resources :images
   resources :worlds
   resources :story_locations

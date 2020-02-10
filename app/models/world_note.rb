@@ -1,0 +1,2 @@
+class WorldNote < ApplicationRecord
+end

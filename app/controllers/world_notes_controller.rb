@@ -1,0 +1,2 @@
+class WorldNotesController < ApplicationController
+end
