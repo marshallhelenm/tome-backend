@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 9) do
+ActiveRecord::Schema.define(version: 10) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,14 @@ ActiveRecord::Schema.define(version: 9) do
     t.string "username"
     t.string "password_digest"
     t.integer "default_world_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "world_notes", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.integer "world_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
