@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :world_notes
   resources :images
   resources :worlds
+  resources :world_notes
   resources :story_locations
   resources :story_characters
   resources :locations
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
   post '/getcharacter', to: 'characters#getcharacter'
   post '/getlocation', to: 'locations#getlocation'
   post '/getstory_note', to: 'story_notes#getstory_note'
+  post '/getworld_note', to: 'world_notes#getworld_note'
 
 
   post '/getstories', to: 'stories#getstories'
