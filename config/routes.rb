@@ -19,20 +19,26 @@ Rails.application.routes.draw do
 
   post '/getworlds', to: 'worlds#getworlds'
   post '/getworld', to: 'worlds#getworld'
-  post '/getstory', to: 'stories#getstory'
-  post '/getcharacter', to: 'characters#getcharacter'
-  post '/getlocation', to: 'locations#getlocation'
-  post '/getstory_note', to: 'story_notes#getstory_note'
   post '/getworld_note', to: 'world_notes#getworld_note'
+  post '/getworld_notes', to: 'world_notes#getworld_notes'
+  post '/getworldstories', to: 'stories#getworldstories'
 
 
   post '/getstories', to: 'stories#getstories'
-  post '/getworldstories', to: 'stories#getworldstories'
-  post '/getcharacters', to: 'characters#getcharacters'
+  post '/getstory', to: 'stories#getstory'
+  post '/getstory_note', to: 'story_notes#getstory_note'
   post '/getstorycharacters', to: 'story_characters#getstorycharacters'
-  post '/getlocations', to: 'locations#getlocations'
   post '/getstorylocations', to: 'story_locations#getstorylocations'
   post '/getstory_notes', to: 'story_notes#getstory_notes'
+  
+
+  post '/getlocation', to: 'locations#getlocation'
+  post '/getlocations', to: 'locations#getlocations'
+  post '/getcharacter', to: 'characters#getcharacter'
+  post '/getcharacters', to: 'characters#getcharacters'
+
+
+
 
   post '/worlds/new', to: 'worlds#create'
   post '/stories/new', to: 'stories#create'
