@@ -1,6 +1,5 @@
 class WorldNotesController < ApplicationController
     def getworld_notes
-        byebug
         world = World.find(note_params['world_id'])
         notes = world.world_notes
         render :json => notes

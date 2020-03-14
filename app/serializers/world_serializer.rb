@@ -4,4 +4,5 @@ class WorldSerializer < ActiveModel::Serializer
   has_one :characters
   has_one :locations
   has_many :images
+  has_many :world_notes
 end
