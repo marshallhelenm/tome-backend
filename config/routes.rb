@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :portfolios
-  resources :world_notes
   resources :images
   resources :worlds
   resources :world_notes
@@ -45,6 +44,7 @@ Rails.application.routes.draw do
   post '/characters/new', to: 'characters#create'
   post '/locations/new', to: 'locations#create'
   post '/story_notes/new', to: 'story_notes#create'
+  post '/world_notes/new', to: 'world_notes#create'
 
 
 
