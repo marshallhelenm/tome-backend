@@ -6,6 +6,7 @@ class StoryNotesController < ApplicationController
     end
 
     def getstory_note
+        # byebug
         note = StoryNote.find(note_params['id'])
         render :json => note
     end
@@ -45,3 +46,4 @@ class StoryNotesController < ApplicationController
     end
 end
 
+ 
