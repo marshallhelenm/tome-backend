@@ -1,5 +1,9 @@
 class ImagesController < ApplicationController
 
+    def create
+        byebug
+    end
+
     def destroy
         img = Image.find(img_params['img_id'])
         img.destroy
@@ -8,10 +12,11 @@ class ImagesController < ApplicationController
         } 
     end
 
+
     private
 
     def img_params
-        params.require(:image).permit(:img_id)
+        params.require(:image).permit(:img_id, :url, :world_id)
     end
 
 end
